@@ -35,4 +35,18 @@ class RacingGame {
         }
         return cars
     }
+
+    fun moveCarIfRandomNumberNotLessThan4(car: Car, randomNumber: Int) {
+        validateRandomNumber(randomNumber)
+
+        if (randomNumber >= 4) {
+            car.move()
+        }
+    }
+
+    fun validateRandomNumber(randomNumber: Int) {
+        if (randomNumber < 0 || randomNumber > 9) {
+            throw IllegalArgumentException()
+        }
+    }
 }
