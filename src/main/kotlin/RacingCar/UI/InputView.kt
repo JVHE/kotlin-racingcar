@@ -2,9 +2,9 @@ package RacingCar.UI
 
 class InputView {
 
-    fun inputNumberOfCars(): String {
+    fun inputNumberOfCars(): Int {
         println("자동차 대수는 몇 대 인가요?")
-        return readLine()!!
+        return readLine()!!.toInt()
     }
 
     fun inputNumberOfAttempts(): Int {
