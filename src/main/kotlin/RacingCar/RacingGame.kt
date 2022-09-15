@@ -1,6 +1,8 @@
 package RacingCar
 
 import RacingCar.UI.InputView
+import RacingCar.UI.ResultView
+import kotlin.random.Random
 
 class RacingGame {
     fun start() {
@@ -11,7 +13,18 @@ class RacingGame {
         validateNumberOfCars(numberOfCars)
         validateNumberOfAttempts(numberOfAttempts)
 
+        val resultView = ResultView()
+        resultView.printResult()
+
         val cars = generateCars(numberOfCars)
+
+        repeat(numberOfAttempts) {
+            cars.forEach {
+                val randomNumber = Random.nextInt(10)
+                moveCarIfRandomNumberNotLessThan4(it, randomNumber)
+            }
+            resultView.printCarPosition(cars)
+        }
     }
 
     fun validateNumberOfCars(numberOfCars: Int) {
