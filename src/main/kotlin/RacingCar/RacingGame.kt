@@ -7,5 +7,25 @@ class RacingGame {
         val inputView = InputView()
         val numberOfCars = inputView.inputNumberOfCars()
         val numberOfAttempts = inputView.inputNumberOfAttempts()
+
+        validateNumberOfCars(numberOfCars)
+
+        val cars = generateCars(numberOfCars)
+    }
+
+    fun validateNumberOfCars(numberOfCars: Int) {
+        if (numberOfCars < 1) {
+            throw IllegalArgumentException()
+        }
+    }
+
+    fun generateCars(numberOfCars: Int): List<Car> {
+        validateNumberOfCars(numberOfCars)
+
+        val cars = mutableListOf<Car>()
+        for (i in 0 until numberOfCars) {
+            cars.add(Car())
+        }
+        return cars
     }
 }
