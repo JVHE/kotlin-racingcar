@@ -33,6 +33,22 @@ class RacingGameTest {
     }
 
     @Test
+    fun numberOfAttemptsMustExceed0() {
+        assertThrows(IllegalArgumentException::class.java) {
+            racingGame!!.validateNumberOfAttempts(0)
+        }
+        assertThrows(IllegalArgumentException::class.java) {
+            racingGame!!.validateNumberOfAttempts(-3)
+        }
+        assertDoesNotThrow {
+            racingGame!!.validateNumberOfAttempts(1)
+        }
+        assertDoesNotThrow {
+            racingGame!!.validateNumberOfAttempts(3)
+        }
+    }
+
+    @Test
     fun generateCarsExactlyNumberOfCars() {
         val carCount = 3
         val cars = racingGame!!.generateCars(carCount)
